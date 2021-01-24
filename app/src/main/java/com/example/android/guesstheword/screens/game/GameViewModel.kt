@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModel
 
 // COMPLETED (02) Create the GameViewModel class, extending ViewModel
 // COMPLETED (03) Add init and override onCleared; Add log statements to both
+
 /**
  * ViewModel containing all the logic needed to run the game
  */
