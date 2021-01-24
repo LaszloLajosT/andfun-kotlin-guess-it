@@ -24,16 +24,85 @@ import androidx.lifecycle.ViewModel
  * ViewModel containing all the logic needed to run the game
  */
 class GameViewModel : ViewModel() {
-
-    // TODO (06) Once you've copied over the variables and methods, remove any code referring back
+    // COMPLETED (06) Once you've copied over the variables and methods, remove any code referring back
     // to the GameFragment. You can also clean up the log statements from the last step.
 
+    // COMPLETED (01) Move over the word, score and wordList variables to the GameViewModel
+    // The current word
+    var word = ""
+
+    // The current score
+    var score = 0
+
+    // The list of words - the front of the list is the next word to guess
+    private lateinit var wordList: MutableList<String>
+
     init {
-        Log.i("GameViewModel", "GameViewModel created!")
+        //Log.i("GameViewModel", "GameViewModel created!")
+        // COMPLETED (03) Move over this initialization to the GameViewModel
+        resetList()
+        nextWord()
     }
 
-    override fun onCleared() {
+    /*override fun onCleared() {
         super.onCleared()
         Log.i("GameViewModel", "GameViewModel destroyed!")
+    }*/
+
+
+    // COMPLETED (02) Move over methods resetList, nextWord, onSkip and onCorrect to the GameViewModel
+    /**
+     * Resets the list of words and randomizes the order
+     */
+    private fun resetList() {
+        wordList = mutableListOf(
+                "queen",
+                "hospital",
+                "basketball",
+                "cat",
+                "change",
+                "snail",
+                "soup",
+                "calendar",
+                "sad",
+                "desk",
+                "guitar",
+                "home",
+                "railway",
+                "zebra",
+                "jelly",
+                "car",
+                "crow",
+                "trade",
+                "bag",
+                "roll",
+                "bubble"
+        )
+        wordList.shuffle()
+    }
+
+    /**
+     * Moves to the next word in the list
+     */
+    private fun nextWord() {
+        //Select and remove a word from the list
+        if (wordList.isEmpty()) {
+            // gameFinished() should happen here
+            //gameFinished()
+        } else {
+            word = wordList.removeAt(0)
+        }
+    }
+
+    /** Methods for buttons presses **/
+
+    fun onSkip() {
+        score--
+        nextWord()
+    }
+
+    fun onCorrect() {
+        score++
+        nextWord()
     }
 }
