@@ -88,6 +88,4 @@ class GameFragment : Fragment() {
 
     // COMPLETED (05) Move this code to update the UI up to your Observers; remove references to
     // updateWordText and updateScoreText - you shouldn't need them!
-
-
 }
