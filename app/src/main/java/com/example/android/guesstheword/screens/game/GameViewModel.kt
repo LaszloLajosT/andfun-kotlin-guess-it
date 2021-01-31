@@ -42,6 +42,7 @@ class GameViewModel : ViewModel() {
 
     // COMPLETED (03) Create a properly encapsulated LiveData for the current time called currentTime
     // Its type should be Long
+
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
         get() = _currentTime
