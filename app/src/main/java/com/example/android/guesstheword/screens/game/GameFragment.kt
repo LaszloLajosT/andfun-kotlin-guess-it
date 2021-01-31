@@ -59,13 +59,18 @@ class GameFragment : Fragment() {
         }
 
         /** Setting up LiveData observation relationship **/
-        viewModel.word.observe(this, Observer { newWord ->
+        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
             binding.wordText.text = newWord
         })
 
-        viewModel.score.observe(this, Observer { newScore ->
+        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
+
+        // COMPLETED (04) Add an observer of eventGameFinish which, when eventGameFinish is true,
+        // performs the code in gameFinished()
+        // Make sure to call onGameFinishCompete to tell your viewmodel that the game finish event
+        // was dealt with
 
         // Sets up event listening to navigate the player when the game is finished
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { isFinished ->
@@ -78,7 +83,6 @@ class GameFragment : Fragment() {
         })
 
         return binding.root
-
     }
 
 }
