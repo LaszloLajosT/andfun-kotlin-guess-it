@@ -51,10 +51,10 @@ class ScoreFragment : Fragment() {
                 false
         )
 
-        // TODO (04) Create and construct a ScoreViewModelFactory
+        // COMPLETED (04) Create and construct a ScoreViewModelFactory
         val scoreFragmentArgs by navArgs<ScoreFragmentArgs>()
 
-        // TODO (05) Create ScoreViewModel by using ViewModelProvider as usual, except also
+        // COMPLETED (05) Create ScoreViewModel by using ViewModelProvider as usual, except also
         // pass in your ScoreViewModelFactory
 
         viewModelFactory = ScoreViewModelFactory(scoreFragmentArgs.score)
