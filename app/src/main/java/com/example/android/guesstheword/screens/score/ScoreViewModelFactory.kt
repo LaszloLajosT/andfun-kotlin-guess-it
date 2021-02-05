@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider
 
 // COMPLETED (02) Copy over ScoreViewModelFactory - have it also take in a constructor parameter called
 // finalScore
+
 class ScoreViewModelFactory(private val finalScore: Int) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ScoreViewModel::class.java)) {
@@ -29,5 +30,3 @@ class ScoreViewModelFactory(private val finalScore: Int) : ViewModelProvider.Fac
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-
-
