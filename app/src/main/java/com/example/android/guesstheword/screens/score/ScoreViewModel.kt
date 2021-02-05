@@ -20,6 +20,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+// COMPLETED (01) Create the ScoreViewModel class and have it take in an integer constructor parameter
+// called finalScore
+
+// COMPLETED (06) Add a LiveData for the score and the play again event, using the best practices for
+// encapsulation and event handling that you've learned
+
 /**
  * ViewModel for the final screen showing the score
  */
