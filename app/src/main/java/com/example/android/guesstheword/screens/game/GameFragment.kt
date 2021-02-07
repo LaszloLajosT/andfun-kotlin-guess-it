@@ -56,11 +56,18 @@ class GameFragment : Fragment() {
         // data in the VieWModel
         binding.gameViewModel = viewModel
 
+        // COMPLETED (02) Call binding.setLifecycleOwner and pass in "this" fragment to make the
+        // data binding lifecycle aware
+
+        // COMPLETED (03) Now you can remove the score and word observers - we'll fix
+        // the currentTime observation in the next step
+        /** Setting up LiveData observation relationship **/
+
         // Specify the current activity as the lifecycle owner of the binding. This is used so that
         // the binding can observe LiveData updates
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
-        viewModel.currentTime.observe(this, Observer { newTime ->
+        viewModel.currentTime.observe(viewLifecycleOwner, Observer { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
 
         })
