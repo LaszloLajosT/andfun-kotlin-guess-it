@@ -52,9 +52,12 @@ class GameViewModel : ViewModel() {
     // TODO (01) Create a new LiveData called currentTimeString.
     // TODO (02) Use Transformation.map to take the number output from currentTime, and transform
     // it into a String using DateUtils.
+  
+    // The String version of the current time
     val currentTimeString = Transformations.map(currentTime, { time ->
         DateUtils.formatElapsedTime(time)
     })
+    
 
     // The current word
     private val _word = MutableLiveData<String>()
