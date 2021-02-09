@@ -27,6 +27,7 @@ import androidx.core.content.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
@@ -60,7 +61,7 @@ class GameFragment : Fragment() {
 
         // Specify the current activity as the lifecycle owner of the binding. This is used so that
         // the binding can observe LiveData updates
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         // Sets up event listening to navigate the player when the game is finished
         viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { isFinished ->
@@ -71,6 +72,9 @@ class GameFragment : Fragment() {
                 viewModel.onGameFinishComplete()
             }
         })
+
+        // COMPLETED (09) Created an observer for the buzz event which calls the buzz method with the
+        // correct pattern. Remember to call onBuzzComplete!
 
         // Buzzes when triggered with different buzz events
         viewModel.eventBuzz.observe(viewLifecycleOwner, Observer { buzzType ->
@@ -84,6 +88,8 @@ class GameFragment : Fragment() {
 
     }
 
+    // COMPLETED (08) Copy over the buzz method here
+  
     /**
      * Given a pattern, this method makes sure the device buzzes
      */
