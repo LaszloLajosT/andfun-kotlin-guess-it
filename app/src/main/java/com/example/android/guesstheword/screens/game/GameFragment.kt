@@ -89,6 +89,7 @@ class GameFragment : Fragment() {
     }
 
     // COMPLETED (08) Copy over the buzz method here
+  
     /**
      * Given a pattern, this method makes sure the device buzzes
      */
@@ -104,5 +105,4 @@ class GameFragment : Fragment() {
             }
         }
     }
-
 }
